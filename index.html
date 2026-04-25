@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Charles & Kelly</title>
+
+<style>
+
+body{
+margin:0;
+background:white;
+}
+
+/* ENVELOPE */
+
+#overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("envelope.png") center center no-repeat;
+background-size:cover;
+z-index:9999;
+transition:opacity 0.8s ease;
+}
+
+/* ÁREA CLIQUE ENVELOPE */
+
+#areaClique{
+position:absolute;
+top:52%;
+left:50%;
+transform:translate(-50%, -50%);
+width:280px;
+height:90px;
+cursor:pointer;
+}
+
+/* CONTAINER */
+
+.container{
+position:relative;
+width:100%;
+max-width:700px;
+margin:auto;
+}
+
+/* IMAGEM */
+
+.container img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* BOTÕES INVISÍVEIS DEFINITIVOS */
+
+.btn{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+width:54%;
+height:0.75%;
+z-index:10;
+}
+
+/* POSIÇÕES FINAIS */
+
+.btn-localizacao{ top:71.90%; }
+
+.btn-manual{ top:73.40%; }
+
+.btn-presentes{ top:74.95%; }
+
+.btn-site{ top:76.43%; }
+
+</style>
+</head>
+
+<body>
+
+<div id="overlay">
+<div id="areaClique"></div>
+</div>
+
+<audio id="musica" loop preload="auto">
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<img src="convite.png">
+
+<a target="_blank"
+href="https://maps.app.goo.gl/bGw8LtAbVC5vZuVv8"
+class="btn btn-localizacao"></a>
+
+<a target="_blank"
+href="https://sites.icasei.com.br/kellyecharles/places/18"
+class="btn btn-manual"></a>
+
+<a target="_blank"
+href="https://sites.icasei.com.br/kellyecharles/pages/37082940"
+class="btn btn-presentes"></a>
+
+<a target="_blank"
+href="https://sites.icasei.com.br/kellyecharles/home"
+class="btn btn-site"></a>
+
+</div>
+
+<script>
+
+const areaClique = document.getElementById("areaClique");
+const overlay = document.getElementById("overlay");
+const audio = document.getElementById("musica");
+
+areaClique.addEventListener("click", () => {
+
+audio.play();
+
+overlay.style.opacity="0";
+
+setTimeout(()=>{
+overlay.style.display="none";
+},800);
+
+});
+
+</script>
+
+</body>
+</html>
